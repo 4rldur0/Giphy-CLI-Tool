@@ -12,7 +12,7 @@ class DataTest(unittest.TestCase):
             "bundle": "messaging_non_clips"
         }
         d = Data("trending", api_key, params)
-        self.assertTrue(d.get_data != None, "Data is not invoked")
+        self.assertTrue(d.get_data() != None, "Data is not invoked")
 
 if __name__ == "__main__":
     unittest.main()
