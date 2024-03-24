@@ -1,8 +1,9 @@
 from data import Data
 import click
 import sys
+import os
 
-api_key = "oZhufry2NyjOWfmCItORiADf8lPGTN2j"
+api_key = os.environ["GIPHY_API_KEY"]
 
 @click.group()
 def gif():
@@ -41,4 +42,5 @@ def search(q):
     return d.get_data()
     
 if __name__ == "__main__":
+    print(api_key)
     gif()
