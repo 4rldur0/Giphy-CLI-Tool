@@ -1,7 +1,9 @@
-from api import GiphyAPI
 import click
 
+from api import GiphyAPI
+
 api = GiphyAPI()
+
 
 class GiphyCLI:
 
@@ -11,7 +13,7 @@ class GiphyCLI:
         print("hello from giphy cli!")
 
     @gif.command()
-    @click.option('-s', is_flag=True)
+    @click.option("-s", is_flag=True)
     def trending(s):
         data = api.trending()
         if s:
@@ -19,13 +21,14 @@ class GiphyCLI:
         return data
 
     @gif.command()
-    @click.argument('q')
-    @click.option('-s', is_flag=True)
+    @click.argument("q")
+    @click.option("-s", is_flag=True)
     def search(q, s):
         data = api.search(q)
         if s:
             click.echo(data)
         return data
+
 
 if __name__ == "__main__":
     g = GiphyCLI()

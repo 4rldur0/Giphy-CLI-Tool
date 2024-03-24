@@ -1,5 +1,7 @@
-from data import Data
 import os
+
+from data import Data
+
 
 class GiphyAPI:
     def __init__(self):
@@ -8,7 +10,7 @@ class GiphyAPI:
             "limit": 25,
             "offset": 0,
             "rating": "g",
-            "bundle": "messaging_non_clips"
+            "bundle": "messaging_non_clips",
         }
 
     def trending(self):
@@ -18,7 +20,6 @@ class GiphyAPI:
 
     def search(self, q):
         print("search subcommand called!")
-        self.params['q'] = q
+        self.params["q"] = q
         d = Data("search", self.params)
         return d.get_data()
-

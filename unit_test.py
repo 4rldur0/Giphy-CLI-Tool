@@ -1,6 +1,8 @@
-from data import Data
-from api import GiphyAPI
 import unittest
+
+from api import GiphyAPI
+from data import Data
+
 
 class Test(unittest.TestCase):
     # small tests
@@ -11,20 +13,27 @@ class Test(unittest.TestCase):
             "limit": 25,
             "offset": 0,
             "rating": "g",
-            "bundle": "messaging_non_clips"
+            "bundle": "messaging_non_clips",
         }
-        d = Data("trending", self.params)
-        self.assertTrue(d.get_data()['meta']['msg'] == 'OK', "responded message should be 'OK'")
+        d = Data("trending", params)
+        self.assertTrue(
+            d.get_data()["meta"]["msg"] == "OK", "responded message should be 'OK'"
+        )
 
     # medium tests
     def test_trending_api(self):
         ga = GiphyAPI()
-        self.assertTrue(ga.trending()['meta']['msg'] == 'OK', "responded message should be 'OK'")
+        self.assertTrue(
+            ga.trending()["meta"]["msg"] == "OK", "responded message should be 'OK'"
+        )
 
     def test_search_api(self):
         ga = GiphyAPI()
         q = "hi"
-        self.assertTrue(ga.search(q)['meta']['msg'] == 'OK', "responded message should be 'OK'")
-        
+        self.assertTrue(
+            ga.search(q)["meta"]["msg"] == "OK", "responded message should be 'OK'"
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
