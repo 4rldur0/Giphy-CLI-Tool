@@ -1,7 +1,7 @@
 import requests
 
 class Data:
-    def __init__(self, endpoint, api_key, params):
+    def __init__(self, endpoint, params):
         url = "https://api.giphy.com/v1/gifs"
         self.url = "/".join([url, endpoint])
         self.params = params
