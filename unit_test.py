@@ -1,37 +1,26 @@
 import unittest
 
 from api import GiphyAPI
-from data import Data
 
+gAPI = GiphyAPI()
 
 class Test(unittest.TestCase):
     # small tests
     def test_url(self):
-        api_key = "oZhufry2NyjOWfmCItORiADf8lPGTN2j"
-        params = {
-            "api_key": api_key,
-            "limit": 25,
-            "offset": 0,
-            "rating": "g",
-            "bundle": "messaging_non_clips",
-        }
-        d = Data("trending", params)
         self.assertTrue(
-            d.get_data()["meta"]["msg"] == "OK", "responded message should be 'OK'"
+            gAPI.get_data("trending")["meta"]["msg"] == "OK", "responded message should be 'OK'"
         )
 
     # medium tests
     def test_trending_api(self):
-        ga = GiphyAPI()
         self.assertTrue(
-            ga.trending()["meta"]["msg"] == "OK", "responded message should be 'OK'"
+            gAPI.trending()["meta"]["msg"] == "OK", "responded message should be 'OK'"
         )
 
     def test_search_api(self):
-        ga = GiphyAPI()
         q = "hi"
         self.assertTrue(
-            ga.search(q)["meta"]["msg"] == "OK", "responded message should be 'OK'"
+            gAPI.search(q)["meta"]["msg"] == "OK", "responded message should be 'OK'"
         )
 
 
