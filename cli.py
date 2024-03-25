@@ -13,7 +13,7 @@ class GiphyCLI:
         print("hello from giphy cli!")
 
     @gif.command()
-    @click.option("-s", is_flag=True)
+    @click.option("-s", is_flag=True, help="Print out the result")
     def trending(s):
         data = api.trending()
         if s:
@@ -22,7 +22,7 @@ class GiphyCLI:
 
     @gif.command()
     @click.argument("q")
-    @click.option("-s", is_flag=True)
+    @click.option("-s", is_flag=True, help="Print out the result")
     def search(q, s):
         data = api.search(q)
         if s:
