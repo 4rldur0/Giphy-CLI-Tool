@@ -13,22 +13,42 @@ class GiphyCLI:
         print("hello from giphy cli!")
 
     @gif.command()
-    @click.option("-s", is_flag=True, help="Print out the result")
-    def trending(s):
-        data = api.trending()
-        if s:
-            click.echo(data)
-        return data
+    @click.option("-n", type=int, help="Set limitation")
+    @click.option("-p", is_flag=True, help="Print out the entire response")
+    @click.option("-l", is_flag=True, help="List of all the titles and URLs")
+    def trending(n, p, l):
+        api.trending(n)
+        if api.status != 'OK':
+            print("Failed to execute trending subcommand")
+            print("Status: ", api.status)
+            return
+        if p:
+            click.echo(api.data)
+        if l:
+            click.echo(f"\n **Trendings**\n=================")
+            for i in range(n):
+                click.echo(f"[{i+1}] {api.titles[i]}")
+                click.echo(api.urls[i])
 
     @gif.command()
     @click.argument("q")
-    @click.option("-s", is_flag=True, help="Print out the result")
-    def search(q, s):
-        data = api.search(q)
-        if s:
+    @click.option("-n", type=int, help="Set limitation")
+    @click.option("-p", is_flag=True, help="Print out the entire response")
+    @click.option("-l", is_flag=True, help="List of all the titles and URLs")
+    def search(q, n, p, l):
+        api.search(q, n)
+        if api.status != 'OK':
+            print("Failed to execute trending subcommand")
+            print("Status: ", api.status)
+            return
+        if p:
             click.echo(data)
-        return data
-
+        if l:
+            click.echo(f"\n **Search Results for \"{q}\"**\n===============================")
+            for i in range(n):
+                click.echo(f"[{i+1}] {api.titles[i]}")
+                click.echo(api.urls[i])
+                
 
 if __name__ == "__main__":
     g = GiphyCLI()
