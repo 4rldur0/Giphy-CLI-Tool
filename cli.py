@@ -18,14 +18,15 @@ class GiphyCLI:
     @click.option("-l", is_flag=True, help="List of all the titles and URLs")
     def trending(n, p, l):
         api.trending(n)
-        if api.status != 'OK':
+        if api.status != "OK":
             print("Failed to execute trending subcommand")
             print("Status: ", api.status)
             return
+        click.echo("Successfully executed")
         if p:
             click.echo(api.data)
         if l:
-            click.echo(f"\n **Trendings**\n=================")
+            click.echo("\n **Trendings**\n=================")
             for i in range(n):
                 click.echo(f"[{i+1}] {api.titles[i]}")
                 click.echo(api.urls[i])
@@ -37,18 +38,21 @@ class GiphyCLI:
     @click.option("-l", is_flag=True, help="List of all the titles and URLs")
     def search(q, n, p, l):
         api.search(q, n)
-        if api.status != 'OK':
+        if api.status != "OK":
             print("Failed to execute trending subcommand")
             print("Status: ", api.status)
             return
+        click.echo("Successfully executed")
         if p:
-            click.echo(data)
+            click.echo(api.data)
         if l:
-            click.echo(f"\n **Search Results for \"{q}\"**\n===============================")
+            click.echo(
+                '\n **Search Results for "{q}"**\n==============================='
+            )
             for i in range(n):
                 click.echo(f"[{i+1}] {api.titles[i]}")
                 click.echo(api.urls[i])
-                
+
 
 if __name__ == "__main__":
     g = GiphyCLI()
