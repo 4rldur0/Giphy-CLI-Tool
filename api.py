@@ -1,4 +1,5 @@
 import os
+
 import requests
 
 
@@ -14,7 +15,7 @@ class GiphyAPI:
         self.url = ""
         self.data = {}
         self.status = None
-        
+
     def get_data(self, endpoint):
         url = "https://api.giphy.com/v1/gifs"
         self.url = "/".join([url, endpoint])
@@ -25,13 +26,13 @@ class GiphyAPI:
     def extract_data(self):
         self.titles = []
         self.urls = []
-        self.status = self.data['meta']['msg']
+        self.status = self.data["meta"]["msg"]
         if self.status == "OK":
-            for i in range(len(self.data['data'])):
-                self.titles.append(self.data['data'][i]['title'])
-                self.urls.append(self.data['data'][i]['url'])
-    
-    def trending(self, limit = 25):
+            for i in range(len(self.data["data"])):
+                self.titles.append(self.data["data"][i]["title"])
+                self.urls.append(self.data["data"][i]["url"])
+
+    def trending(self, limit=25):
         if limit <= 0:
             return
         print("trending subcommand called!")
@@ -39,7 +40,7 @@ class GiphyAPI:
         self.data = self.get_data("trending")
         self.extract_data()
 
-    def search(self, q, limit = 25):
+    def search(self, q, limit=25):
         if limit <= 0:
             return
         print("search subcommand called!")
