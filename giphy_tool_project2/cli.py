@@ -1,6 +1,6 @@
 import click
 
-from giphy_tool_project2.api import GiphyAPI
+from api import GiphyAPI
 
 api = GiphyAPI()
 
@@ -12,7 +12,7 @@ class GiphyCLI:
     def gif():
         print("hello from giphy cli!")
 
-    @click.command()
+    @gif.command()
     @click.option("-n", type=int, help="Set limitation")
     @click.option("-p", is_flag=True, help="Print out the entire response")
     @click.option("-l", is_flag=True, help="List of all the titles and URLs")
@@ -31,7 +31,7 @@ class GiphyCLI:
                 click.echo(f"[{i+1}] {api.titles[i]}")
                 click.echo(api.urls[i])
 
-    @click.command()
+    @gif.command()
     @click.argument("q")
     @click.option("-n", type=int, help="Set limitation")
     @click.option("-p", is_flag=True, help="Print out the entire response")
@@ -54,6 +54,6 @@ class GiphyCLI:
                 click.echo(api.urls[i])
 
 
-if __name__ == "__main__:
+if __name__ == "__main__":
     g = GiphyCLI()
     g.gif()
