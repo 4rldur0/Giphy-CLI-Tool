@@ -1,12 +1,12 @@
 import os
 
 import requests
-
+import getpass
 
 class GiphyAPI:
     def __init__(self):
         self.__params = {
-            "api_key": os.environ["GIPHY_API_KEY"],
+            "api_key": getpass.getpass(prompt="giphy api key: "),
             "limit": 25,
             "offset": 0,
             "rating": "g",
