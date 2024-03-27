@@ -1,6 +1,6 @@
 from click.testing import CliRunner
 
-from src.cli import GiphyCLI
+from giphy_tool_project2.cli import GiphyCLI
 
 gCLI = GiphyCLI()
 runner = CliRunner()

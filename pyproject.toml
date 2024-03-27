@@ -1,6 +1,3 @@
-[project.scripts]
-gif = "src:cli"
-
 [tool.poetry]
 name = "giphy-tool-project2"
 version = "0.1.0"
@@ -20,5 +17,17 @@ flake8 = "^7.0.0"
 black = "^24.3.0"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools>=65.5.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "giphy_cli_tool"
+version = "0.1.0"
+readme = "README.md"
+dependencies = [
+	"requests >= 2.31.0",
+	"click >= 8.1.7",
+]
+
+[project.scripts]
+gif = "giphy_tool_project2.cli"

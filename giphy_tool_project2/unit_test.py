@@ -1,6 +1,6 @@
 import unittest
 
-from api import GiphyAPI
+from agiphy_tool_project2.api import GiphyAPI
 
 gAPI = GiphyAPI()
 
