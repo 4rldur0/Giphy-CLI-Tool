@@ -33,16 +33,16 @@ class GiphyAPI:
                 self.urls.append(self.data["data"][i]["url"])
 
     def trending(self, limit=25):
-        if limit <= 0:
-            return
+        # if limit <= 0:
+        #    return
         print("trending subcommand called!")
         self.__params["limit"] = limit
         self.data = self.get_data("trending")
         self.extract_data()
 
     def search(self, q, limit=25):
-        if limit <= 0:
-            return
+        # if limit <= 0:
+        #    return
         print("search subcommand called!")
         self.__params["q"] = q
         self.__params["limit"] = limit

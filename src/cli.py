@@ -1,6 +1,6 @@
 import click
 
-from api import GiphyAPI
+from src.api import GiphyAPI
 
 api = GiphyAPI()
 

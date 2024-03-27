@@ -1,3 +1,6 @@
+[project.scripts]
+gif = "src:cli"
+
 [tool.poetry]
 name = "giphy-tool-project2"
 version = "0.1.0"
