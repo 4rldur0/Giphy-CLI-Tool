@@ -1,6 +1,6 @@
 import click
 
-from api import GiphyAPI
+from giphy_tool_project2.api import GiphyAPI
 
 api = GiphyAPI()
 
@@ -54,6 +54,6 @@ class GiphyCLI:
                 click.echo(api.urls[i])
 
 
-if __name__ == "__main__":
+def main():
     g = GiphyCLI()
     g.gif()

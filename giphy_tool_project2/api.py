@@ -1,12 +1,12 @@
 import os
 
 import requests
-
+import getpass
 
 class GiphyAPI:
     def __init__(self):
         self.__params = {
-            "api_key": os.environ["GIPHY_API_KEY"],
+            "api_key": getpass.getpass(prompt="giphy api key: "),
             "limit": 25,
             "offset": 0,
             "rating": "g",
@@ -34,6 +34,7 @@ class GiphyAPI:
 
     def trending(self, limit=25):
         if limit <= 0:
+            self.__params["limit"] = 0
             return
         print("trending subcommand called!")
         self.__params["limit"] = limit
@@ -42,9 +43,10 @@ class GiphyAPI:
 
     def search(self, q, limit=25):
         if limit <= 0:
+            self.__params["limit"] = limit
             return
         print("search subcommand called!")
         self.__params["q"] = q
-        self.__params["limit"] = limit
+        self.__params["limit"] = limit    
         self.data = self.get_data("search")
         self.extract_data()

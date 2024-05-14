@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "giphy-tool-project2"
-version = "0.1.0"
+name = "giphy_cli_tool"
+version = "0.0.2"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["4rldur0 <nkim@unca.edu>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -17,5 +17,7 @@ flake8 = "^7.0.0"
 black = "^24.3.0"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+#requires = ["poetry-core"]
+#build-backend = "poetry.core.masonry.api"
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

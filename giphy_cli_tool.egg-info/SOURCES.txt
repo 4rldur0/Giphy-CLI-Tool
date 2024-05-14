@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+giphy_cli_tool.egg-info/PKG-INFO
+giphy_cli_tool.egg-info/SOURCES.txt
+giphy_cli_tool.egg-info/dependency_links.txt
+giphy_cli_tool.egg-info/entry_points.txt
+giphy_cli_tool.egg-info/requires.txt
+giphy_cli_tool.egg-info/top_level.txt
+giphy_tool_project2/__init__.py
+giphy_tool_project2/api.py
+giphy_tool_project2/cli.py
+giphy_tool_project2/click_test.py
+giphy_tool_project2/unit_test.py
